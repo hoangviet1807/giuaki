@@ -103,7 +103,7 @@ def login():
             check = cursor.fetchone()
             if configadmin.username==user and configadmin.password==psw:
                 session['idname'] = request.form['idname']  
-                return redirect(url_for('usermanagement'))
+                return redirect(url_for('mission'))
                 # return render_template('home.html')
             elif checkblock:
                 error = alert.LOGINSTATUS  
@@ -111,7 +111,7 @@ def login():
                 session['idname'] = request.form['idname']  
                 cursor.execute(SQL.SQLIMAGE,(user,))
                 image = cursor.fetchone()
-                return redirect(url_for('usermanagement'))       
+                return redirect(url_for('mission'))       
             else :
                 error = alert.LOGINACCOUNT
         return render_template("login.html",error=error)
